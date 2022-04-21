@@ -131,11 +131,12 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
     __three_piece__ : str = None
     __lab_id__ : int = None
     __lab_ids__ : typing.List[int] = [None, None, None]
-
+    __else__ : dict = {}
 
     def __post_init__(self):
-        pass
-
+        top = self.top
+        mid = self.middle
+        bot = self.bottom
 
     @property
     def name(self):
@@ -216,7 +217,8 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
         mid_id : int = None,
         bot_id : int = None,
         id : int = None,
-        alternative_names : typing.List[str] = None
+        alternative_names : typing.List[str] = None,
+        **kwargs
     ):
         return StigamataSet(
             __set_name__=name,
@@ -227,7 +229,8 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
             __three_piece__=three_piece,
             __lab_id__=id,
             __lab_ids__=[top_id, mid_id, bot_id],
-            alt_names = alternative_names
+            alt_names = alternative_names,
+            __else__=kwargs
         )
 
     @staticmethod
