@@ -19,8 +19,6 @@ script_name = os.path.basename(__file__).split(".")[0]
 
 data = []
 
-
-
 def parse_stig_page(href : str, name : str, top_img=None, mid_img =None, bot_img =None):
     page = requests.get(BASE_URL + href)
     soup = BeautifulSoup(page.content, 'html.parser')

@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import dataclasses
 import typing
 
 class StigPieceMetaClass(type):
@@ -85,6 +86,10 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
     def hoyo_id(self):
         return self.__stig_set__.__lab_ids__[self.__stig_pos__]
 
+    @property
+    def stigset(self):
+        return self.__stig_set__
+
     def __str__(self) -> str:
         if self.is_top:
             return f"{self.__stig_set__.__set_name__} (T)"
@@ -105,17 +110,17 @@ class StigmataSetMetaClass(type):
         if set_name is None:
             raise ValueError("__set_name__ cannot be None")
 
+        alt_names = kwargs.pop("alt_names", None)
+
+
         if set_name not in cls.instances:
             make_item = super().__call__(*args, **kwargs)
+            set_name = set_name.lower()
 
-            if "alt_name" in kwargs:
-                alt_name = kwargs.pop("alt_name", None)
-                if alt_name is not None and isinstance(alt_name, typing.List[str]):
-                    for name in alt_name:
+            if alt_names and isinstance(alt_names, typing.List[str]):
+                    for name in alt_names:
+                        name = name.lower()
                         cls.alt_name_instances[name] = cls.instances[set_name]
-
-                else:
-                    raise ValueError("alt_name must be a list of string")
             
             cls.instances[set_name] = make_item
 
@@ -130,8 +135,9 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
     __two_piece__ : str = None
     __three_piece__ : str = None
     __lab_id__ : int = None
-    __lab_ids__ : typing.List[int] = [None, None, None]
-    __else__ : dict = {}
+    # default factory
+    __lab_ids__ : list = dataclasses.field(default_factory=lambda : [None, None, None])
+    __else__ : dict = dataclasses.field(default_factory=lambda : {})
 
     def __post_init__(self):
         top = self.top
@@ -234,7 +240,8 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
         )
 
     @staticmethod
-    def get(name : str, alt : bool = False):
+    def get(name : str, alt : bool = False) -> typing.Union['StigamataSet', None]:
+        name = name.lower()
         if alt and name in StigmataSetMetaClass.alt_name_instances:
             return StigmataSetMetaClass.alt_name_instances[name]
 
