@@ -10,8 +10,10 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from honkaiDex.data import HONKAI_FANDOM as BASE_URL
-from honkaiDex.data import HONKAI_FANDOM_STIGAMATA as URL
+BASE_URL = "https://honkaiimpact3.fandom.com"
+URL = "https://honkaiimpact3.fandom.com/wiki/Stigmata"
+
+
 from honkaiDex.data import HONKAIDEX_DATA
 
 # get script filename
@@ -90,7 +92,7 @@ def parse_stig_page(href : str, name : str, top_img=None, mid_img =None, bot_img
     global data
     data.append(entry)
 
-if __name__ == '__main__':
+def parse(path:str):
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
     # get div main-container 
@@ -119,5 +121,8 @@ if __name__ == '__main__':
         sleep(1)
 
     # write to file
-    with open(os.path.join(HONKAIDEX_DATA, f"{script_name}.json"), "w") as f:
+    with open(path, "w") as f:
         json.dump(data, f, indent=4)
+
+if __name__ == '__main__':
+    parse(os.path.join(HONKAIDEX_DATA, f"{script_name}.json"))
