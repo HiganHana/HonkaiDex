@@ -10,14 +10,21 @@ for root, dirs, files in os.walk("honkaiDex/data"):
 
 setup(
     name="honkaidex",
-    version="0.1.0",
+    version="0.1.2",
     author="celtica, kiyandere",
     author_email="celticaxp@gmail.com, kiyanhalcyon0707@gmail.com",
     description="Honkai Impact 3 Database",
     long_description="".join(open("README.md", "r").readlines()),
     long_description_content_type="text/markdown",
     url="https://github.com/HiganHana/HonkaiDex",
-    packages=find_packages(),
+    packages=[
+        "honkaiDex",
+        "honkaiDex.base",
+        "honkaiDex.profile",
+        "honkaiDex.data",
+        "honkaiDex.parse_v1",
+        "honkaiDex.game",
+    ],
     data_files=data_files,
     install_requires=[
         "bs4",
