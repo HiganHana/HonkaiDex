@@ -3,14 +3,6 @@ import dataclasses
 import typing
 
 class StigPieceMetaClass(type):
-    def _to_hash(self, stig_pos : int, stig_set : 'StigamataSet' = None, stig_name : str = None):
-        if stig_set is None and stig_name is None:
-            raise ValueError("Either stig_set or stig_name is required")
-        if stig_set is not None:
-            stig_name = stig_set.name
-
-        return hash(str(stig_pos) +"__"+ str(stig_name))
-
     t_piece = {}
     m_piece = {}
     b_piece = {}
@@ -55,6 +47,10 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
             raise ValueError("__stig_pos__ must be between 0 and 2")
 
     @property
+    def pos(self) -> int:
+        return self.__stig_pos__
+
+    @property
     def is_top(self):
         return self.__stig_pos__ == 0
 
@@ -84,19 +80,22 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
 
     @property
     def hoyo_id(self):
-        return self.__stig_set__.__lab_ids__[self.__stig_pos__]
+        return self.__stig_set__._lab_ids[self.__stig_pos__]
 
     @property
-    def stigset(self):
+    def stigset(self) -> 'StigamataSet':
+        """
+        returns the stig set object of this piece
+        """
         return self.__stig_set__
 
     def __str__(self) -> str:
         if self.is_top:
-            return f"{self.__stig_set__.__set_name__} (T)"
+            return f"{self.__stig_set__._set_name} (T)"
         elif self.is_middle:
-            return f"{self.__stig_set__.__set_name__} (M)"
+            return f"{self.__stig_set__._set_name} (M)"
         else:
-            return f"{self.__stig_set__.__set_name__} (B)"
+            return f"{self.__stig_set__._set_name} (B)"
 
 
 class StigmataSetMetaClass(type):
@@ -104,11 +103,11 @@ class StigmataSetMetaClass(type):
     alt_name_instances = {}
 
     def __call__(cls, *args, **kwargs):
-        if "__set_name__" not in kwargs:
-            raise ValueError("__set_name__ is required")
-        set_name = kwargs.get("__set_name__", None)
+        if "_set_name" not in kwargs:
+            raise ValueError("_set_name is required")
+        set_name = kwargs.get("_set_name", None)
         if set_name is None:
-            raise ValueError("__set_name__ cannot be None")
+            raise ValueError("_set_name cannot be None")
 
         alt_names = kwargs.pop("alt_names", None)
 
@@ -128,16 +127,16 @@ class StigmataSetMetaClass(type):
 
 @dataclass
 class StigamataSet(metaclass=StigmataSetMetaClass):
-    __set_name__ : str
-    __top_e__ : str = None
-    __mid_e__ : str = None
-    __bot_e__ : str = None
-    __two_piece__ : str = None
-    __three_piece__ : str = None
-    __lab_id__ : int = None
+    _set_name : str
+    _top_e : str = None
+    _mid_e : str = None
+    _bot_e : str = None
+    _two_piece : str = None
+    _three_piece : str = None
+    _lab_id : int = None
     # default factory
-    __lab_ids__ : list = dataclasses.field(default_factory=lambda : [None, None, None])
-    __else__ : dict = dataclasses.field(default_factory=lambda : {})
+    _lab_ids : list = dataclasses.field(default_factory=lambda : [None, None, None])
+    _else : dict = dataclasses.field(default_factory=lambda : {})
 
     def __post_init__(self):
         top = self.top
@@ -146,15 +145,15 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
 
     @property
     def name(self):
-        return self.__set_name__
+        return self._set_name
 
     def effect(self, pos: int):
         if pos == 0:
-            return self.__top_e__
+            return self._top_e
         elif pos == 1:
-            return self.__mid_e__
+            return self._mid_e
         elif pos == 2:
-            return self.__bot_e__
+            return self._bot_e
         else:
             raise ValueError("pos must be between 0 and 2")
 
@@ -163,15 +162,15 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
 
     @property
     def has_top(self):
-        return self.__top_e__ is not None
+        return self._top_e is not None
 
     @property
     def has_middle(self):
-        return self.__mid_e__ is not None
+        return self._mid_e is not None
     
     @property
     def has_bottom(self):
-        return self.__bot_e__ is not None
+        return self._bot_e is not None
 
     @property
     def top(self):
@@ -205,11 +204,11 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
 
     @property
     def two_piece(self) -> str:
-        return self.__two_piece__
+        return self._two_piece
     
     @property
     def three_piece(self) -> str:
-        return self.__three_piece__
+        return self._three_piece
 
     @staticmethod
     def create(
@@ -227,16 +226,16 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
         **kwargs
     ):
         return StigamataSet(
-            __set_name__=name,
-            __top_e__=top,
-            __mid_e__=mid,
-            __bot_e__=bot,
-            __two_piece__=two_piece,
-            __three_piece__=three_piece,
-            __lab_id__=id,
-            __lab_ids__=[top_id, mid_id, bot_id],
+            _set_name=name,
+            _top_e=top,
+            _mid_e=mid,
+            _bot_e=bot,
+            _two_piece=two_piece,
+            _three_piece=three_piece,
+            _lab_id=id,
+            _lab_ids=[top_id, mid_id, bot_id],
             alt_names = alternative_names,
-            __else__=kwargs
+            _else=kwargs
         )
 
     @staticmethod
