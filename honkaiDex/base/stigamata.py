@@ -239,10 +239,22 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
         )
 
     @staticmethod
-    def get(name : str, alt : bool = False) -> typing.Union['StigamataSet', None]:
+    def iterate() -> typing.Generator['StigamataSet', None, None]:
+        for val in StigmataSetMetaClass.instances.values():
+            yield val
+
+    @staticmethod
+    def get(name : str, alt : bool = False, partial_search : bool = False) -> typing.Union['StigamataSet', None]:
         name = name.lower()
         if alt and name in StigmataSetMetaClass.alt_name_instances:
             return StigmataSetMetaClass.alt_name_instances[name]
 
-        return StigmataSetMetaClass.instances.get(name, None)
+        getfull = StigmataSetMetaClass.instances.get(name, None)
+        if getfull is not None:
+            return getfull
         
+        if partial_search:
+            for val in StigamataSet.iterate():
+                val : StigamataSet
+                if val.name.lower().startswith(name):
+                    return val
