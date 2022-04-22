@@ -1,6 +1,9 @@
 from honkaiDex.__config__ import _gconfig, _cconfig, has_gconfig
 
 class gconfig(_gconfig):
+    MIN_LV = 1
+    MAX_LV = 88
+
     STIGAMATA = "stigamata_1"
     CHARACTER = "character_0"
 class config(_cconfig):    

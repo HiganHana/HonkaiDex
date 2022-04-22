@@ -41,13 +41,29 @@ class BaseCharacter(metaclass=BaseCharacterMeta):
         return self._nicknames
 
     @staticmethod
-    def get(name: str, is_nickname : bool = False):
+    def get(name: str, nickname_allowed : bool = False, partial_search : bool = False) -> typing.Union['BaseCharacter', None]:
         name = name.strip().lower()
 
-        if is_nickname:
-            return BaseCharacter.nicknames.get(name, None)
-        else:
-            return BaseCharacter.instances.get(name, None)
+        item = BaseCharacter.instances.get(name, None)
+        if item is not None:
+            return item
+
+        if nickname_allowed:
+            item = BaseCharacter.nicknames.get(name, None)
+            if item is not None:
+                return item
+
+        if partial_search:
+            for val in BaseCharacter.instances.values():
+                if name in val.name:
+                    return val
+        
+        if nickname_allowed and partial_search:
+            for key, val in BaseCharacter.nicknames.items():
+                if name in key:
+                    return val
+
+                
 
     def __del__(self):
         self.__class__.instances.pop(self.name, None)
@@ -174,6 +190,15 @@ class Battlesuit(metaclass=BattlesuitMeta):
             for val in Battlesuit.abbrevs.keys():
                 if name in val:
                     return Battlesuit.instances[Battlesuit.abbrevs[name]]
+
+    @staticmethod
+    def get_all(**kwargs):
+        ret = []
+        for item in Battlesuit.instances.values():
+            item : Battlesuit
+            if all(kwargs[key] == getattr(item, "_"+key) for key in kwargs.keys()):
+                ret.append(item)
+        return ret
 
     @staticmethod
     def create(
