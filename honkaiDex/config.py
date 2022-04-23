@@ -1,4 +1,4 @@
-from honkaiDex.__config__ import _gconfig, _cconfig, has_gconfig
+from zxutil.collections import _gconfig, _cconfig
 
 class gconfig(_gconfig):
     MIN_LV = 1
