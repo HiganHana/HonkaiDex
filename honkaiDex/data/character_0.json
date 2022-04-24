@@ -13,7 +13,12 @@
                     "time mastery",
                     "stun"
                 ],
-                "rank": "B"
+                "rank": "B",
+                "nickname": [
+                    "WC",
+                    "Comet",
+                    "Shit Kiana"
+                ]
             },
             {
                 "name": "Valkyrie Ranger",
@@ -25,7 +30,11 @@
                     "gather",
                     "bleed"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VR",
+                    "Ranger"
+                ]
             },
             {
                 "name": "Void Drifter",
@@ -37,7 +46,10 @@
                     "gather",
                     "bleed"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VD"
+                ]
             },
             {
                 "name": "Divine Prayer",
@@ -51,7 +63,10 @@
                     "burst",
                     "time mastery"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "DP"
+                ]
             },
             {
                 "name": "Knight Moonbeam",
@@ -63,7 +78,11 @@
                     "time mastery",
                     "fast atk"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "KM",
+                    "KMB"
+                ]
             },
             {
                 "name": "Herrscher of the Void",
@@ -76,7 +95,12 @@
                     "fast atk",
                     "aerial"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "HoV",
+                    "God Kiana",
+                    "HV"
+                ]
             },
             {
                 "name": "Herrscher of Flamescion",
@@ -90,7 +114,13 @@
                     "gather",
                     "aerial"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "HoF",
+                    "FK",
+                    "HFS",
+                    "HoFs"
+                ]
             }
         ]
     },
@@ -108,7 +138,11 @@
                     "time mastery",
                     "bleed"
                 ],
-                "rank": "B"
+                "rank": "B",
+                "nickname": [
+                    "CI",
+                    "Shit Mei"
+                ]
             },
             {
                 "name": "Valkyrie Bladestrike",
@@ -121,7 +155,10 @@
                     "time mastery",
                     "fast atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VB"
+                ]
             },
             {
                 "name": "Striker Fulminata",
@@ -129,7 +166,10 @@
                 "type": "BIO",
                 "version": "3.0",
                 "tags": [],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "StFu"
+                ]
             },
             {
                 "name": "Shadow Dash",
@@ -140,7 +180,10 @@
                     "physical",
                     "fast atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "DS"
+                ]
             },
             {
                 "name": "Danzai Spectramancer",
@@ -151,7 +194,10 @@
                     "physical",
                     "heavy atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "DS"
+                ]
             },
             {
                 "name": "Lightning Empress",
@@ -162,7 +208,10 @@
                     "lightning dmg",
                     "paralyze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "LE"
+                ]
             },
             {
                 "name": "Herrscher of Thunder",
@@ -176,7 +225,11 @@
                     "fast atk",
                     "paralyze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "HoT",
+                    "HT"
+                ]
             }
         ]
     },
@@ -194,7 +247,11 @@
                     "gather",
                     "ignite"
                 ],
-                "rank": "B"
+                "rank": "B",
+                "nickname": [
+                    "VC",
+                    "Shit Bronya"
+                ]
             },
             {
                 "name": "Snowy Sniper",
@@ -205,7 +262,10 @@
                     "physical",
                     "freeze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SS"
+                ]
             },
             {
                 "name": "Yamabuki Armor",
@@ -219,7 +279,10 @@
                     "burst",
                     "time mastery"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "YA"
+                ]
             },
             {
                 "name": "Drive Kometa",
@@ -233,7 +296,10 @@
                     "gather",
                     "weaken"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "DK"
+                ]
             },
             {
                 "name": "Wolf's Dawn",
@@ -246,7 +312,10 @@
                     "stun",
                     "weaken"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "WD"
+                ]
             },
             {
                 "name": "Dimension Breaker",
@@ -260,7 +329,10 @@
                     "bleed",
                     "paralyze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "DB"
+                ]
             },
             {
                 "name": "Black Nucleus",
@@ -271,7 +343,10 @@
                     "physical",
                     "stun"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "BN"
+                ]
             },
             {
                 "name": "Herrscher of Reason",
@@ -284,7 +359,11 @@
                     "time mastery",
                     "freeze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "HoR",
+                    "HR"
+                ]
             },
             {
                 "name": "Haxxor Bunny",
@@ -296,7 +375,12 @@
                     "time mastery",
                     "fast atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "HB",
+                    "Haxxor",
+                    "Bronie"
+                ]
             },
             {
                 "name": "Silverwing - N-EX",
@@ -310,7 +394,12 @@
                     "fast atk",
                     "aerial"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "Bronya EX",
+                    "Boobanya",
+                    "SW"
+                ]
             }
         ]
     },
@@ -328,7 +417,11 @@
                     "stun",
                     "heavy atk"
                 ],
-                "rank": "B"
+                "rank": "B",
+                "nickname": [
+                    "BS",
+                    "Shit Himeko"
+                ]
             },
             {
                 "name": "Valkyrie Triumph",
@@ -342,7 +435,10 @@
                     "stun",
                     "heavy atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VT"
+                ]
             },
             {
                 "name": "Scarlet Fusion",
@@ -355,7 +451,10 @@
                     "paralyze",
                     "heavy atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SF"
+                ]
             },
             {
                 "name": "Blood Rose",
@@ -368,7 +467,11 @@
                     "heavy atk",
                     "ignite"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "BR",
+                    "Blood Himeko"
+                ]
             },
             {
                 "name": "Kriegsmesser",
@@ -379,7 +482,12 @@
                     "ice dmg",
                     "freeze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "Krieg",
+                    "Kriegs",
+                    "Ice Himeko"
+                ]
             },
             {
                 "name": "Vermilion Knight - Eclipse",
@@ -390,7 +498,12 @@
                     "fire dmg",
                     "ignite"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "VK",
+                    "VKE",
+                    "Dead Himeko"
+                ]
             }
         ]
     },
@@ -407,7 +520,11 @@
                     "burst",
                     "bleed"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "GM",
+                    "Miko"
+                ]
             },
             {
                 "name": "Goushinnso Memento",
@@ -418,7 +535,10 @@
                     "ice dmg",
                     "freeze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "SS"
+                ]
             },
             {
                 "name": "Flame Sakitama",
@@ -430,7 +550,11 @@
                     "time mastery",
                     "ignite"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "FS",
+                    "FIre Sakura"
+                ]
             },
             {
                 "name": "Darkbolt Jonin",
@@ -442,7 +566,13 @@
                     "time mastery",
                     "paralyze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "DJ",
+                    "Kasumi",
+                    "Ninja",
+                    "Lighting Sakura"
+                ]
             }
         ]
     },
@@ -460,7 +590,13 @@
                     "fast atk",
                     "paralyze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VP",
+                    "Shit Theresa",
+                    "Teri",
+                    "Teri Teri"
+                ]
             },
             {
                 "name": "Violet Executer",
@@ -474,7 +610,10 @@
                     "bleed",
                     "heavy atk"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "VE"
+                ]
             },
             {
                 "name": "Twilight Paladin",
@@ -487,7 +626,10 @@
                     "fast atk",
                     "bleed"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "TP"
+                ]
             },
             {
                 "name": "Sakuno Rondo",
@@ -500,7 +642,11 @@
                     "fast atk",
                     "ignite"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SR",
+                    "Fire Theresa"
+                ]
             },
             {
                 "name": "Celestial Hymn",
@@ -513,7 +659,10 @@
                     "gather",
                     "fast atk"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "CH"
+                ]
             },
             {
                 "name": "Luna Kindred",
@@ -526,7 +675,10 @@
                     "bleed",
                     "heavy atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "LK"
+                ]
             },
             {
                 "name": "Starlit Astrologos",
@@ -540,7 +692,11 @@
                     "stun",
                     "gather"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SA",
+                    "Kongming"
+                ]
             }
         ]
     },
@@ -558,7 +714,11 @@
                     "time mastery",
                     "stun"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VA",
+                    "Shit Fu Hua"
+                ]
             },
             {
                 "name": "Hawk of the Fog",
@@ -571,7 +731,11 @@
                     "paralyze",
                     "heavy atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "HF",
+                    "HotF"
+                ]
             },
             {
                 "name": "Phoenix",
@@ -583,7 +747,10 @@
                     "time mastery",
                     "weaken"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "PX"
+                ]
             },
             {
                 "name": "Night Squire",
@@ -597,7 +764,10 @@
                     "fast atk",
                     "bleed"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "NS"
+                ]
             },
             {
                 "name": "Shadow Knight",
@@ -611,7 +781,10 @@
                     "fast atk",
                     "bleed"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "SK"
+                ]
             },
             {
                 "name": "Azure Empyrea",
@@ -624,7 +797,10 @@
                     "gather",
                     "ignite"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "AE"
+                ]
             },
             {
                 "name": "Herrscher of Sentience",
@@ -638,7 +814,12 @@
                     "time mastery",
                     "gather"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "HoS",
+                    "HS",
+                    "Scammer"
+                ]
             }
         ]
     },
@@ -655,7 +836,11 @@
                     "time mastery",
                     "stun"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "RI",
+                    "IR"
+                ]
             },
             {
                 "name": "Sixth Serenade",
@@ -666,7 +851,11 @@
                     "ice dmg",
                     "freeze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "6S",
+                    "Six"
+                ]
             },
             {
                 "name": "S\u00fcndenj\u00e4ger",
@@ -678,7 +867,10 @@
                     "impair",
                     "fast atk"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SJ"
+                ]
             }
         ]
     },
@@ -694,7 +886,10 @@
                     "physical",
                     "time mastery"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "UR"
+                ]
             },
             {
                 "name": "Phantom Iron",
@@ -705,7 +900,10 @@
                     "lightning dmg",
                     "paralyze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "PI"
+                ]
             },
             {
                 "name": "Argent Knight - Artemis",
@@ -717,7 +915,12 @@
                     "burst",
                     "freeze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "AKA",
+                    "AK",
+                    "Ice Rita"
+                ]
             },
             {
                 "name": "Fallen Rosemary",
@@ -730,7 +933,10 @@
                     "gather",
                     "paralyze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "FR"
+                ]
             },
             {
                 "name": "Spina Astera",
@@ -743,7 +949,11 @@
                     "gather",
                     "ignite"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "SpA",
+                    "Fire Rita"
+                ]
             }
         ]
     },
@@ -759,7 +969,10 @@
                     "physical",
                     "freeze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "BB"
+                ]
             }
         ]
     },
@@ -776,7 +989,10 @@
                     "time mastery",
                     "gather"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "MC"
+                ]
             },
             {
                 "name": "Fervent Tempo \u0394",
@@ -788,7 +1004,11 @@
                     "time mastery",
                     "gather"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "FT",
+                    "Delta"
+                ]
             }
         ]
     },
@@ -804,7 +1024,10 @@
                     "physical",
                     "burst"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SP"
+                ]
             },
             {
                 "name": "Stygian Nymph",
@@ -816,7 +1039,10 @@
                     "time mastery",
                     "heavy atk"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "SN"
+                ]
             },
             {
                 "name": "Starchasm Nyx",
@@ -829,7 +1055,12 @@
                     "time mastery",
                     "freeze"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "SNyx",
+                    "Nyx",
+                    "Best Girl"
+                ]
             }
         ]
     },
@@ -846,7 +1077,10 @@
                     "time mastery",
                     "ignite"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "VG"
+                ]
             },
             {
                 "name": "Bright Knight - Excelsis",
@@ -859,7 +1093,11 @@
                     "time mastery",
                     "heavy atk"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "BK",
+                    "BKE"
+                ]
             },
             {
                 "name": "Dea Anchora",
@@ -872,7 +1110,10 @@
                     "gather",
                     "ignite"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "DA"
+                ]
             },
             {
                 "name": "Palatinus Equinox",
@@ -883,7 +1124,11 @@
                     "physical",
                     "time mastery"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "PE",
+                    "Juan"
+                ]
             }
         ]
     },
@@ -899,7 +1144,10 @@
                     "physical",
                     "time mastery"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "BH"
+                ]
             }
         ]
     },
@@ -917,7 +1165,12 @@
                     "fast atk",
                     "aerial"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "PV",
+                    "Fish",
+                    "Oz"
+                ]
             }
         ]
     },
@@ -935,7 +1188,12 @@
                     "fast atk",
                     "aerial"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "Ely",
+                    "MPE",
+                    "Pink Lady"
+                ]
             }
         ]
     },
@@ -952,7 +1210,11 @@
                     "time mastery",
                     "aerial"
                 ],
-                "rank": "S"
+                "rank": "S",
+                "nickname": [
+                    "IO",
+                    "Snake"
+                ]
             }
         ]
     },
@@ -968,7 +1230,11 @@
                     "fire dmg",
                     "time mastery"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "Raven",
+                    "MA"
+                ]
             }
         ]
     },
@@ -987,7 +1253,10 @@
                     "gather",
                     "aerial"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "SnS"
+                ]
             }
         ]
     },
@@ -1004,7 +1273,12 @@
                     "time mastery",
                     "freeze"
                 ],
-                "rank": "A"
+                "rank": "A",
+                "nickname": [
+                    "RC",
+                    "Cat",
+                    "Neko"
+                ]
             }
         ]
     }
