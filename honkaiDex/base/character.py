@@ -222,7 +222,7 @@ class Battlesuit(metaclass=BattlesuitMeta):
         
 
         return Battlesuit(
-            name=name, 
+            _name=name, 
             _base_character=base_character, 
             _version_released=version_released, 
             _rairty=rarity, 
