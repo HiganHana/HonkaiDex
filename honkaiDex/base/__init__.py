@@ -29,20 +29,20 @@ class DataclassMeta(type):
         key_name :str = name.lower().strip()
         
 
-        nicknames : str = kwargs.pop("nicknames", [])
-        for nickname in nicknames:
-            nickname = nickname.lower().strip()
+        nickname : str = kwargs.pop("nickname", [])
+        for nick in nickname:
+            nick = nick.lower().strip()
 
-        if not isinstance(nicknames, list):
-            raise ValueError("nicknames must be a list")
+        if not isinstance(nickname, list):
+            raise ValueError("nickname must be a list")
 
         if cls not in cls._instances:
             kwargs["name"] = name
-            kwargs["nicknames"] = nicknames
+            kwargs["nickname"] = nickname
             item = super().__call__(*args, **kwargs)
             cls._instances[key_name] = item
-            for nickname in nicknames:
-                cls._nickname_instances[nickname] = item
+            for nick in nickname:
+                cls._nickname_instances[nick] = item
 
         return cls._instances[key_name]
         
@@ -51,7 +51,7 @@ class DataclassMeta(type):
 @dataclass
 class DataclassNode(metaclass=DataclassMeta):
     name :str
-    nicknames : typing.List[str]
+    nickname : typing.List[str]
 
     def __setitem__(self, key, value):
         if not hasattr(self, "_other"):
@@ -122,7 +122,7 @@ class DataclassNode(metaclass=DataclassMeta):
         return None
 
     @classmethod
-    def get_from_name(cls, name : str, partial : bool = False, nickname : bool = False):
+    def get_from_name(cls, name : str, partial : bool = False, nick : bool = False):
         name = name.lower().strip()
         if name in cls._instances:
             return cls._instances[name]
@@ -130,7 +130,7 @@ class DataclassNode(metaclass=DataclassMeta):
         if partial and (res :=cls.get_partial(name)) is not None:
             return res
 
-        if nickname and name in cls._nickname_instances:
+        if nick and name in cls._nickname_instances:
             return cls._nickname_instances[name]
             
         return None
@@ -220,4 +220,4 @@ class DataclassNode(metaclass=DataclassMeta):
         strip_name = self.name.lower().strip().encode("utf-8").decode("ascii", "ignore")
         no_space = strip_name.replace(" ", "")
 
-        return [self.name] + self.nicknames + [strip_name, no_space]
+        return [self.name] + self.nickname + [strip_name, no_space]

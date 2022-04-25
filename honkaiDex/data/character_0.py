@@ -19,7 +19,7 @@ def load():
         character_data : dict
         character = BaseCharacter.create(
             name=character_data["name"],
-            nicknames=character_data.get("nicknames", []),
+            nickname=character_data.get("nickname", []),
         )
 
 
