@@ -18,9 +18,6 @@ class t_full_cycle(unittest.TestCase):
 
         self.assertEqual(god_kiana.name, "god kiana")
 
-    
-
-
 class t_search(unittest.TestCase):
     def test_battlesuit_name_partial(self):
         item  = Battlesuit.get_from_name(name="hite", partial=True)
@@ -32,4 +29,5 @@ class t_search(unittest.TestCase):
         item = Battlesuit.get_from_name(name="Vermilion Knight - Eclipse", partial=True)
         self.assertEqual(item.name, "Vermilion Knight - Eclipse")
 
-    
+        item = Battlesuit.get_from_name(name="Starlit Astrologos", partial=True)
+        self.assertEqual(item.name, "Starlit Astrologos")
