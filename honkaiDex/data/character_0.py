@@ -33,4 +33,5 @@ def load():
                 rarity=bs_data["rank"],
                 tags=bs_data.get("tags", []),
                 img_link=bs_data.get("img_link", None),
+                nickname=bs_data["nickname"]
             )

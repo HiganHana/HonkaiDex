@@ -10,7 +10,7 @@ for root, dirs, files in os.walk("honkaiDex/data"):
 
 setup(
     name="honkaidex",
-    version="0.2.1",
+    version="0.2.2",
     author="celtica, kiyandere",
     author_email="celticaxp@gmail.com, kiyanhalcyon0707@gmail.com",
     description="Honkai Impact 3 Database",
