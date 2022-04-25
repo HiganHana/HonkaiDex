@@ -96,7 +96,14 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
         else:
             return f"{self.__stig_set__.name} (B)"
 
-
+    @property
+    def img(self):
+        if self.is_top:
+            return self.__stig_set__.top_img
+        elif self.is_middle:
+            return self.__stig_set__.mid_img
+        else:
+            return self.__stig_set__.bot_img
 
 
 @dataclass
@@ -106,6 +113,9 @@ class StigamataSet(DataclassNode):
     bot_e : str = None
     two_piece : str = None
     three_piece : str = None
+    bot_img : str = None
+    mid_img : str = None
+    top_img : str = None
     
     def __post_init__(self):
         top = self.top

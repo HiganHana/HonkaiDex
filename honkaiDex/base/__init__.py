@@ -221,3 +221,6 @@ class DataclassNode(metaclass=DataclassMeta):
         no_space = strip_name.replace(" ", "")
 
         return [self.name] + self.nickname + [strip_name, no_space]
+
+    def to_json(self) -> dict:
+        return {k:v for k,v in self.__dict__.items() if not k.startswith("_")}

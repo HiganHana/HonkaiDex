@@ -32,6 +32,6 @@ def load():
                 version_released=bs_data["version"],
                 rarity=bs_data["rank"],
                 tags=bs_data.get("tags", []),
-                img_link=bs_data.get("img_link", None),
+                img_link=bs_data.get("img", None),
                 nickname=bs_data["nickname"]
             )
