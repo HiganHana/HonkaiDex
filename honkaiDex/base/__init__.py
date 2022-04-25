@@ -213,3 +213,11 @@ class DataclassNode(metaclass=DataclassMeta):
         if isinstance(data, list):
             for item in data:
                 item = cls.create(**item)
+
+    @property
+    def all_names(self) -> typing.List[str]:
+        # only english characters
+        strip_name = self.name.lower().strip().encode("utf-8").decode("ascii", "ignore")
+        no_space = strip_name.replace(" ", "")
+
+        return [self.name] + self.nicknames + [strip_name, no_space]
