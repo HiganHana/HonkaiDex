@@ -17,21 +17,20 @@ def load():
 
     for character_data in json_data.values():
         character_data : dict
-        character = BaseCharacter(
-            _name=character_data["name"],
-            _nicknames=character_data.get("nicknames", []),
+        character = BaseCharacter.create(
+            name=character_data["name"],
+            nicknames=character_data.get("nicknames", []),
         )
 
 
         for bs_data in character_data.get("battlesuit", []):
             bs_data : dict
-            bs = Battlesuit(
-                _base_character=character,
-                _name=bs_data["name"],
-                _type=bs_data["type"],
-                _version_released=bs_data["version"],
-                _rairty=bs_data["rank"],
-                _tags=bs_data.get("tags", []),
-                _img_link=bs_data.get("img_link", None),
-                _else=bs_data.get("else", {}),
+            bs = Battlesuit.create(
+                base_character=character,
+                name=bs_data["name"],
+                type=bs_data["type"],
+                version_released=bs_data["version"],
+                rarity=bs_data["rank"],
+                tags=bs_data.get("tags", []),
+                img_link=bs_data.get("img_link", None),
             )

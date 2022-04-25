@@ -2,6 +2,8 @@ from dataclasses import dataclass
 import dataclasses
 import typing
 
+from honkaiDex.base import DataclassNode
+
 class StigPieceMetaClass(type):
     t_piece = {}
     m_piece = {}
@@ -78,9 +80,6 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
     def effect(self):
         return self.__stig_set__.effect(self.__stig_pos__)
 
-    @property
-    def hoyo_id(self):
-        return self.__stig_set__._lab_ids[self.__stig_pos__]
 
     @property
     def stigset(self) -> 'StigamataSet':
@@ -91,69 +90,35 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
 
     def __str__(self) -> str:
         if self.is_top:
-            return f"{self.__stig_set__._set_name} (T)"
+            return f"{self.__stig_set__.name} (T)"
         elif self.is_middle:
-            return f"{self.__stig_set__._set_name} (M)"
+            return f"{self.__stig_set__.name} (M)"
         else:
-            return f"{self.__stig_set__._set_name} (B)"
+            return f"{self.__stig_set__.name} (B)"
 
 
-class StigmataSetMetaClass(type):
-    instances = {}
-    alt_name_instances = {}
 
-    def __call__(cls, *args, **kwargs):
-        if "_set_name" not in kwargs:
-            raise ValueError("_set_name is required")
-        set_name = kwargs.get("_set_name", None)
-        if set_name is None:
-            raise ValueError("_set_name cannot be None")
-
-        alt_names = kwargs.pop("alt_names", None)
-
-
-        if set_name not in cls.instances:
-            make_item = super().__call__(*args, **kwargs)
-            set_name = set_name.lower()
-
-            if alt_names and isinstance(alt_names, typing.List[str]):
-                    for name in alt_names:
-                        name = name.lower()
-                        cls.alt_name_instances[name] = cls.instances[set_name]
-            
-            cls.instances[set_name] = make_item
-
-        return cls.instances[set_name]
 
 @dataclass
-class StigamataSet(metaclass=StigmataSetMetaClass):
-    _set_name : str
-    _top_e : str = None
-    _mid_e : str = None
-    _bot_e : str = None
-    _two_piece : str = None
-    _three_piece : str = None
-    _lab_id : int = None
-    # default factory
-    _lab_ids : list = dataclasses.field(default_factory=lambda : [None, None, None])
-    _else : dict = dataclasses.field(default_factory=lambda : {})
-
+class StigamataSet(DataclassNode):
+    top_e : str = None
+    mid_e : str = None
+    bot_e : str = None
+    two_piece : str = None
+    three_piece : str = None
+    
     def __post_init__(self):
         top = self.top
         mid = self.middle
         bot = self.bottom
 
-    @property
-    def name(self):
-        return self._set_name
-
     def effect(self, pos: int):
         if pos == 0:
-            return self._top_e
+            return self.top_e
         elif pos == 1:
-            return self._mid_e
+            return self.mid_e
         elif pos == 2:
-            return self._bot_e
+            return self.bot_e
         else:
             raise ValueError("pos must be between 0 and 2")
 
@@ -162,15 +127,15 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
 
     @property
     def has_top(self):
-        return self._top_e is not None
+        return self.top_e is not None
 
     @property
     def has_middle(self):
-        return self._mid_e is not None
+        return self.mid_e is not None
     
     @property
     def has_bottom(self):
-        return self._bot_e is not None
+        return self.bot_e is not None
 
     @property
     def top(self):
@@ -202,59 +167,4 @@ class StigamataSet(metaclass=StigmataSetMetaClass):
             __stig_set__=self
         )
 
-    @property
-    def two_piece(self) -> str:
-        return self._two_piece
     
-    @property
-    def three_piece(self) -> str:
-        return self._three_piece
-
-    @staticmethod
-    def create(
-        name : str, 
-        top : str = None, 
-        mid : str = None, 
-        bot : str = None, 
-        two_piece : str = None, 
-        three_piece : str = None,
-        top_id : int = None,
-        mid_id : int = None,
-        bot_id : int = None,
-        id : int = None,
-        alternative_names : typing.List[str] = None,
-        **kwargs
-    ):
-        return StigamataSet(
-            _set_name=name,
-            _top_e=top,
-            _mid_e=mid,
-            _bot_e=bot,
-            _two_piece=two_piece,
-            _three_piece=three_piece,
-            _lab_id=id,
-            _lab_ids=[top_id, mid_id, bot_id],
-            alt_names = alternative_names,
-            _else=kwargs
-        )
-
-    @staticmethod
-    def iterate() -> typing.Generator['StigamataSet', None, None]:
-        for val in StigmataSetMetaClass.instances.values():
-            yield val
-
-    @staticmethod
-    def get(name : str, alt : bool = False, partial_search : bool = False) -> typing.Union['StigamataSet', None]:
-        name = name.lower()
-        if alt and name in StigmataSetMetaClass.alt_name_instances:
-            return StigmataSetMetaClass.alt_name_instances[name]
-
-        getfull = StigmataSetMetaClass.instances.get(name, None)
-        if getfull is not None:
-            return getfull
-        
-        if partial_search:
-            for val in StigamataSet.iterate():
-                val : StigamataSet
-                if val.name.lower().startswith(name):
-                    return val

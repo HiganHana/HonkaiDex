@@ -39,3 +39,9 @@ def valid_lv(lv : str) -> bool:
     if minlv <= int_lv <= maxlv:
         return True
     return False
+
+def calculate_stamina(lv : int, current :int):
+    max_stamina = lv + 80
+    if current > max_stamina:
+        return 0
+    return (max_stamina - current) * 6

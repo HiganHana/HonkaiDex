@@ -6,6 +6,7 @@ class gconfig(_gconfig):
 
     STIGAMATA = "stigamata_1"
     CHARACTER = "character_0"
+
 class config(_cconfig):    
     class data(_cconfig):
         class stigamata_1(_cconfig):

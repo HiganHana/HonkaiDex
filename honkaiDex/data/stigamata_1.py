@@ -15,14 +15,5 @@ def load():
     with open(os.path.join(HONKAIDEX_DATA, config.data.stigamata_1.FILENAME), "r") as f:
         json_data = json.load(f)
 
-    for item in json_data:
-        StigamataSet.create(
-            name=item["name"],
-            top=item["top_e"],
-            mid=item["mid_e"],
-            bot=item["bot_e"],
-            two_piece=item["two_piece"],
-            three_piece=item["three_piece"],
-            obtainable=item["obtainable"],
-        )
+    StigamataSet.from_json(data=json_data)
     
