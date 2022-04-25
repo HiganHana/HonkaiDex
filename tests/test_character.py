@@ -13,7 +13,7 @@ class t_full_cycle(unittest.TestCase):
             version_released="999.999",
             rarity="S",
             tags=["god", "kiana"],
-            nicknames = ["god kiana"],
+            nickname = ["god kiana"],
         )
 
         self.assertEqual(god_kiana.name, "god kiana")
