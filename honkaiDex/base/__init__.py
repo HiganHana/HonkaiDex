@@ -35,16 +35,21 @@ class DataclassMeta(type):
 
         if not isinstance(nickname, list):
             raise ValueError("nickname must be a list")
-
+        
         if cls not in cls._instances:
+            cls._instances[cls] = {}
+
+        if key_name not in cls._instances[cls]:
             kwargs["name"] = name
             kwargs["nickname"] = nickname
             item = super().__call__(*args, **kwargs)
-            cls._instances[key_name] = item
+            cls._instances[cls][key_name] = item
             for nick in nickname:
+                if nick in cls._nickname_instances:
+                    raise ValueError(f"nickname {nick} is already used by {cls._nickname_instances[nick]}")
                 cls._nickname_instances[nick] = item
 
-        return cls._instances[key_name]
+        return cls._instances[cls][key_name]
         
     
 
@@ -83,7 +88,7 @@ class DataclassNode(metaclass=DataclassMeta):
 
     @classmethod
     def iterate(cls):
-        for val in cls._instances.values():
+        for val in cls._instances[cls].values():
             yield val
 
     @classmethod
@@ -100,7 +105,7 @@ class DataclassNode(metaclass=DataclassMeta):
             return cls._partial_search_mapping[name]
 
         target = None
-        for key, val in cls._instances.items():
+        for key, val in cls._instances[cls].items():
             if name in key:
                 target = val
                 break
@@ -109,7 +114,7 @@ class DataclassNode(metaclass=DataclassMeta):
             cls.__add_partial_result(name, target)
             return target
         
-        for key, val in cls._instances.items():
+        for key, val in cls._instances[cls].items():
             key : str
             if name in key.replace(" ", "").replace("-",""):
                 target = val
@@ -124,8 +129,8 @@ class DataclassNode(metaclass=DataclassMeta):
     @classmethod
     def get_from_name(cls, name : str, partial : bool = False, nick : bool = False):
         name = name.lower().strip()
-        if name in cls._instances:
-            return cls._instances[name]
+        if name in cls._instances[cls]:
+            return cls._instances[cls][name]
         
         if partial and (res :=cls.get_partial(name)) is not None:
             return res

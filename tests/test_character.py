@@ -15,7 +15,7 @@ class t_full_cycle(unittest.TestCase):
             tags=["god", "kiana"],
             nickname = ["god kiana"],
         )
-
+        print(god_kiana)
         self.assertEqual(god_kiana.name, "god kiana")
 
 class t_search(unittest.TestCase):
