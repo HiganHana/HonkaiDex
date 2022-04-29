@@ -3,7 +3,10 @@ import dataclasses
 import inspect
 import typing
 from zxutil.FUNCS import parse_json
+from zxutil.cond import CondLex
 import inspect
+from fuzzywuzzy import process
+
 def is_json_serializable(obj):
     return isinstance(obj, (str, int, float, bool, list, dict, tuple, set, frozenset))
 
@@ -18,9 +21,7 @@ def strip_nonjsonable_in_dict(obj1 : dict):
 class DataclassMeta(type):
     _instances = {}
     _nickname_instances = {}
-    _partial_search_mapping : dict = {}
-    _max_partial_search_history = 50
-    
+    _fields = {}
     def __call__(cls, *args, **kwargs):
         name : str = kwargs.pop("name", None)
         if name is None:
@@ -50,7 +51,14 @@ class DataclassMeta(type):
                 cls._nickname_instances[nick] = item
 
         return cls._instances[cls][key_name]
-        
+    
+    def get_fields(cls):
+        if cls in cls._fields:
+            return cls._fields[cls]
+
+        fields = [item.name for item in dataclasses.fields(cls)]
+        cls._fields[cls] = fields
+        return fields
     
 
 @dataclass(frozen=True)
@@ -62,60 +70,6 @@ class DataclassNode(metaclass=DataclassMeta):
     def __hash__(self) -> int:
         return hash(self.name)
 
-    @classmethod
-    def iterate(cls):
-        for val in cls._instances[cls].values():
-            yield val
-
-    @classmethod
-    def __add_partial_result(cls, name : str, item : object):
-        cls._partial_search_mapping[name] = item
-        if len(cls._partial_search_mapping) > cls._max_partial_search_history:
-            cls._partial_search_mapping.pop(list(cls._partial_search_mapping.keys())[0])
-
-    @classmethod
-    def get_partial(cls, name : str):
-        name = name.lower().strip()
-
-        if name in cls._partial_search_mapping:
-            return cls._partial_search_mapping[name]
-
-        target = None
-        for key, val in cls._instances[cls].items():
-            if name in key:
-                target = val
-                break
-
-        if target is not None:
-            cls.__add_partial_result(name, target)
-            return target
-        
-        for key, val in cls._instances[cls].items():
-            key : str
-            if name in key.replace(" ", "").replace("-",""):
-                target = val
-                break
-        
-        if target is not None:
-            cls.__add_partial_result(name, target)
-            return target
-        
-        return None
-
-    @classmethod
-    def get_from_name(cls, name : str, partial : bool = False, nick : bool = False):
-        name = name.lower().strip()
-        if name in cls._instances[cls]:
-            return cls._instances[cls][name]
-        
-        if partial and (res :=cls.get_partial(name)) is not None:
-            return res
-
-        if nick and name in cls._nickname_instances:
-            return cls._nickname_instances[name]
-            
-        return None
-
     def match(self, **kwargs) -> bool:
         for key, val in kwargs.items():
             if key not in self._data:
@@ -123,14 +77,79 @@ class DataclassNode(metaclass=DataclassMeta):
             if self._data[key] != val:
                 return False
         return True
+    
+    
+    def to_json(self) -> dict:
+        return {k:v for k,v in self.__dict__.items() if not k.startswith("_")}
+
+    #ANCHOR class methods
+    @classmethod
+    def iterate(cls, **kwargs):
+        for val in cls._instances[cls].values():
+            if val.match(**kwargs):
+                yield val
+
+    @classmethod
+    def iterate_field(cls, field_name, ret_object=False, **kwargs):
+        if field_name not in cls.get_fields():
+            raise ValueError(f"{field_name} is not a field of {cls.__name__}")
+
+        for val in cls._instances[cls].values():
+            if not val.match(**kwargs):
+                continue
+            if ret_object:
+                yield getattr(val, field_name), val
+            else:
+                yield getattr(val, field_name) 
+
+    @classmethod
+    def get_field(cls, field_name, **kwargs):
+        ret = []
+        for val in cls.iterate_field(field_name, **kwargs):
+            ret.append(val)
+        return ret
+
+    @classmethod
+    def from_json(cls, data : typing.Union[dict, str], mapping : typing.Dict[str,str] = None):
+        data = parse_json(data)
+        if data is None:
+            raise ValueError("data is not a valid json")
+
+        #
+        if mapping is None:
+            mapping = {}
+        
+        
+        if isinstance(data, dict):
+            for key, val in data.items():
+                val : dict
+                val = {mapping.get(k, k):v for k,v in val.items()}
+                val["name"] = key
+
+                item = cls.create(**val)
+
+            return
+
+        if isinstance(data, list):
+            for item in data:
+                item = cls.create(**item)
+
+    @classmethod
+    def fuzzy_match_names(self, name : str) -> list:
+        names = self.get_field("name")
+        processes = process.extract(name, names, limit=10)
+        return processes
+
+    @classmethod
+    def fuzzy_match_nicknames(self, name : str):
+        nicknames = self.get_field("nickname")
+        processes = process.extract(name, nicknames, limit=10)
+        return processes
 
     @classmethod
     def get(cls, **kwargs) -> 'DataclassNode':
         if len(kwargs) == 0:
             return None
-
-        if len(kwargs) == 1 and "name" in kwargs:
-            return cls.get_from_name(kwargs["name"])
 
         for item in cls.iterate():
             item : DataclassNode
@@ -161,39 +180,3 @@ class DataclassNode(metaclass=DataclassMeta):
         
         return item
         
-
-    @classmethod
-    def from_json(cls, data : typing.Union[dict, str], mapping : typing.Dict[str,str] = None):
-        data = parse_json(data)
-        if data is None:
-            raise ValueError("data is not a valid json")
-
-        #
-        if mapping is None:
-            mapping = {}
-        
-        
-        if isinstance(data, dict):
-            for key, val in data.items():
-                val : dict
-                val = {mapping.get(k, k):v for k,v in val.items()}
-                val["name"] = key
-
-                item = cls.create(**val)
-
-            return
-
-        if isinstance(data, list):
-            for item in data:
-                item = cls.create(**item)
-
-    @property
-    def all_names(self) -> typing.List[str]:
-        # only english characters
-        strip_name = self.name.lower().strip().encode("utf-8").decode("ascii", "ignore")
-        no_space = strip_name.replace(" ", "")
-
-        return [self.name] + self.nickname + [strip_name, no_space]
-
-    def to_json(self) -> dict:
-        return {k:v for k,v in self.__dict__.items() if not k.startswith("_")}
