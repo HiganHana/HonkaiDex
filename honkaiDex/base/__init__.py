@@ -78,7 +78,10 @@ class DataclassNode(metaclass=DataclassMeta):
                 return False
         return True
     
-    
+    @property
+    def _data(self):
+        return self.__dict__
+
     def to_json(self) -> dict:
         return {k:v for k,v in self.__dict__.items() if not k.startswith("_")}
 
@@ -135,16 +138,23 @@ class DataclassNode(metaclass=DataclassMeta):
                 item = cls.create(**item)
 
     @classmethod
-    def fuzzy_match_names(self, name : str) -> list:
+    def fuzzy_match_names(self, name : str) -> typing.List[set]:
         names = self.get_field("name")
         processes = process.extract(name, names, limit=10)
-        return processes
+        ret = []
+        for item in processes:
+            ret.append((self.get(name=item[0]), item[1]))
+        return ret
 
     @classmethod
-    def fuzzy_match_nicknames(self, name : str):
+    def fuzzy_match_nicknames(self, name : str) -> typing.List[set]:
         nicknames = self.get_field("nickname")
         processes = process.extract(name, nicknames, limit=10)
-        return processes
+        ret = []
+        for item in processes:
+            ret.append((self.get(nickname=item[0]), item[1]))
+        return ret
+    
 
     @classmethod
     def get(cls, **kwargs) -> 'DataclassNode':
