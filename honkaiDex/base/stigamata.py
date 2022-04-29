@@ -106,7 +106,7 @@ class StigamataPiece(metaclass=StigPieceMetaClass):
             return self.__stig_set__.bot_img
 
 
-@dataclass
+@dataclass(frozen=True)
 class StigamataSet(DataclassNode):
     top_e : str = None
     mid_e : str = None

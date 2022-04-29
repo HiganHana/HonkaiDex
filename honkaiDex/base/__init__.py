@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import dataclasses
 import inspect
 import typing
-from zxutil.misc import parse_json
+from zxutil.FUNCS import parse_json
 import inspect
 def is_json_serializable(obj):
     return isinstance(obj, (str, int, float, bool, list, dict, tuple, set, frozenset))
@@ -53,38 +53,14 @@ class DataclassMeta(type):
         
     
 
-@dataclass
+@dataclass(frozen=True)
 class DataclassNode(metaclass=DataclassMeta):
     name :str
     nickname : typing.List[str]
-
-    def __setitem__(self, key, value):
-        if not hasattr(self, "_other"):
-            self._other = {}
-        self._other[key] = value
-    
-    def __getitem__(self, key):
-        return self._other.get(key, None)
+    other : typing.Dict[str, typing.Any]
 
     def __hash__(self) -> int:
         return hash(self.name)
-
-    def __post_init__(self):
-        # get all parameters  
-        self._params = inspect.signature(self.__init__).parameters
-        # remove all params that start with _
-        self._params = {k:v for k,v in self._params.items() if not k.startswith("_")}
-        self._lock_params = True
-
-    def __setattr__(self, name : str, value):
-        if name.startswith("_"):
-            super().__setattr__(name, value)
-            return
-
-        if getattr(self, "_lock_params", False) and name in getattr(self, "_params", []):
-            raise AttributeError(f"{name} cannot be changed after initialization")
-
-        super().__setattr__(name, value)
 
     @classmethod
     def iterate(cls):
@@ -177,20 +153,12 @@ class DataclassNode(metaclass=DataclassMeta):
             kwargs = {mapping.get(key, key):val for key, val in kwargs.items()}
 
         gathered = { k : v for k,v in kwargs.items() if k in inspect.signature(cls.__init__).parameters}
+        not_gathererd = {k : v for k,v in kwargs.items() if k not in inspect.signature(cls.__init__).parameters}
         if len(gathered) == 0:
             return None
 
-        item = cls(**gathered)
-        if len(gathered) == len(kwargs):
-            return item
+        item = cls(**gathered, other=not_gathererd)
         
-        if ignore:
-            return item
-
-        for key, val in kwargs.items():
-            if key not in gathered:
-                item[key] = val
-
         return item
         
 

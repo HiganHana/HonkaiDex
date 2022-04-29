@@ -5,7 +5,7 @@ import typing
 from honkaiDex.base import DataclassNode
 
 
-@dataclass
+@dataclass(frozen=True)
 class BaseCharacter(DataclassNode):
     pass
 
@@ -17,7 +17,7 @@ class BattlesuitType(Enum):
     QUA = "Qua"
     IMG = "Img"
 
-@dataclass
+@dataclass(frozen=True)
 class Battlesuit(DataclassNode):
     base_character : BaseCharacter
     version_released : str

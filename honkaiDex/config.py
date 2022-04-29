@@ -1,4 +1,4 @@
-from zxutil.collections import _gconfig, _cconfig
+from zxutil.classConfig import _gconfig, _cconfig
 
 class gconfig(_gconfig):
     MIN_LV = 1
