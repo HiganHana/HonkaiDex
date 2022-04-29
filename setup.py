@@ -28,7 +28,8 @@ setup(
     data_files=data_files,
     install_requires=[
         "zw-util-lib",
-        "fuzzywuzzy"
+        "fuzzywuzzy",
+        "python-Levenshtein"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
