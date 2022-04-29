@@ -4,7 +4,7 @@ import unittest
 
 class t_full_cycle(unittest.TestCase):
     def test_create_battlesuit(self):
-        kiana = BaseCharacter.get_from_name("kiana", partial=True)
+        kiana = BaseCharacter.fuzzy_match_names("kiana")[0][0]
         
         god_kiana = Battlesuit.create(
             name="god kiana", 
@@ -20,14 +20,14 @@ class t_full_cycle(unittest.TestCase):
 
 class t_search(unittest.TestCase):
     def test_battlesuit_name_partial(self):
-        item  = Battlesuit.get_from_name(name="hite", partial=True)
+        item  = Battlesuit.fuzzy_match_names(name="white")[0][0]
         self.assertEqual(item.name, "White Comet")
 
-        item = Battlesuit.get_from_name(name=" Eclipse", partial=True)
+        item = Battlesuit.fuzzy_match_names(name=" Eclipse")[0][0]
         self.assertEqual(item.name, "Vermilion Knight - Eclipse")
 
-        item = Battlesuit.get_from_name(name="Vermilion Knight - Eclipse", partial=True)
+        item = Battlesuit.fuzzy_match_names(name="Vermilion Knight - Eclipse")[0][0]
         self.assertEqual(item.name, "Vermilion Knight - Eclipse")
 
-        item = Battlesuit.get_from_name(name="Starlit Astrologos", partial=True)
+        item = Battlesuit.fuzzy_match_names(name="Starlit Astrologos")[0][0]
         self.assertEqual(item.name, "Starlit Astrologos")

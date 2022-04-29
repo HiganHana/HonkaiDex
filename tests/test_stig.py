@@ -8,9 +8,9 @@ logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 
 class t_stig(unittest.TestCase):
     def test_stig_soemthing(self):
-        res : StigamataSet =StigamataSet.get_from_name(
-            name="zhenyi",partial=True
-        )
+        res : StigamataSet =StigamataSet.fuzzy_match_names(
+            name="zhenyi"
+        )[0][0]
         
         print(res.top.effect)
         print("?")
