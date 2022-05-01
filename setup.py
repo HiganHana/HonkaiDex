@@ -10,7 +10,7 @@ for root, dirs, files in os.walk("honkaiDex/data"):
 
 setup(
     name="honkaidex",
-    version="0.2.5",
+    version="0.3.1",
     author="celtica, kiyandere",
     author_email="celticaxp@gmail.com, kiyanhalcyon0707@gmail.com",
     description="Honkai Impact 3 Database",
@@ -28,8 +28,7 @@ setup(
     data_files=data_files,
     install_requires=[
         "zw-util-lib",
-        "fuzzywuzzy",
-        "python-Levenshtein"
+        "fuzzywuzzy"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
