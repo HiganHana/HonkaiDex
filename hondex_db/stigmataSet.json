@@ -232,7 +232,6 @@
             "Events"
         ]
     },
-
     "Bronya - Starry Gifts": {
         "name": "Bronya - Starry Gifts",
         "rarity": "3",
@@ -338,7 +337,6 @@
             "Supply"
         ]
     },
-
     "Cecilia - Hawaii": {
         "name": "Cecilia - Hawaii",
         "rarity": "3",
@@ -498,7 +496,6 @@
             "Supply"
         ]
     },
-
     "Darwin": {
         "name": "Darwin",
         "rarity": "4",
@@ -611,7 +608,6 @@
             "Events"
         ]
     },
-
     "Edison": {
         "name": "Edison",
         "rarity": "3",
@@ -764,7 +760,6 @@
             "Events"
         ]
     },
-
     "Fu Hua Musician": {
         "name": "Fu Hua Musician",
         "rarity": "4",
@@ -787,7 +782,6 @@
             "Events"
         ]
     },
-
     "Fu Hua: Margrave": {
         "name": "Fu Hua: Margrave",
         "rarity": "4",
@@ -1002,7 +996,7 @@
         ]
     },
     "Himeko's Birthday": {
-        "name" : "Himeko's Birthday",
+        "name": "Himeko's Birthday",
         "version": "2.0",
         "rarity": "4",
         "obtain": []
@@ -1349,7 +1343,6 @@
             "Supply"
         ]
     },
-
     "Kiana - Delivery Girl": {
         "name": "Kiana - Delivery Girl",
         "rarity": "4",
@@ -1360,7 +1353,6 @@
         "setEffect3p": "Increase 30% HP limit in battle.Kiana - Delivery Girl is from 2018 collaboration between ''KFC'' / ''Pizza Hut'' and ''Honkai Impact 3rd'' in China. The set cannot be seen in codex unless obtained.[[Category:Honkai Impact 3 Wiki]]",
         "obtain": []
     },
-
     "Kiana Diva": {
         "name": "Kiana Diva",
         "rarity": "4",
@@ -1371,7 +1363,7 @@
         ]
     },
     "Kiana: Birthday": {
-        "name" : "Kiana: Birthday",
+        "name": "Kiana: Birthday",
         "version": "2.3",
         "rarity": "4",
         "obtain": []
@@ -1577,7 +1569,6 @@
             "Events"
         ]
     },
-
     "Mei's Birthday": {
         "name": "Mei's Birthday",
         "rarity": "3",
@@ -1733,7 +1724,6 @@
             "Supply"
         ]
     },
-
     "New Year": {
         "name": "New Year",
         "rarity": "4",
@@ -2173,7 +2163,6 @@
             "Foundry"
         ]
     },
-
     "Sakamoto Ryoma": {
         "name": "Sakamoto Ryoma",
         "rarity": "3",
@@ -2276,7 +2265,6 @@
         "slotM_effect": "Increases Movement Speed by ? (10% at 4*) when there are no more than 4 enemies on the battlefield. Increases maximum SP during battle by an additional ? (10% at 4*) when equipped on [[Bronya]].Seele - Cyan Sea is a [[stigma]] in ''Honkai Impact 3rd''.[[Category:Honkai Impact 3 Wiki]]",
         "obtain": []
     },
-
     "Seele Vollerei (Stigmata)": {
         "name": "Seele Vollerei (Stigmata)",
         "rarity": "4",
