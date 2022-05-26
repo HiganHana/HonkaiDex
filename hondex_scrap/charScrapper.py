@@ -5,8 +5,8 @@ class CharScrapper(ScrapJob):
         super().__init__("Playable_Characters", "character", **kwargs)
 
     def parse_unit(self, unit: str):
-        if "(APHO)" in unit:
-            return None, None
+        if "APHO" in unit:
+            return None
 
         dict_data, page = super().parse_unit(unit)
 
@@ -15,5 +15,5 @@ class CharScrapper(ScrapJob):
 
 def run_scrap(**kwargs):
     s = CharScrapper(**kwargs)
-    s.run_job(**kwargs)
+    return s.run_job(**kwargs)
     

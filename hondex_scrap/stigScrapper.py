@@ -108,4 +108,4 @@ class StigScrapper(ScrapJob):
 
 def run_scrap(**kwargs):
     s = StigScrapper(**kwargs)
-    s.run_job(**kwargs)
+    return s.run_job(**kwargs)

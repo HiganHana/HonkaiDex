@@ -28,4 +28,4 @@ class BSScrapper(ScrapJob):
 
 def run_scrap(**kwargs):
     scrapper = BSScrapper(**kwargs)
-    scrapper.run_job()
+    return scrapper.run_job()
