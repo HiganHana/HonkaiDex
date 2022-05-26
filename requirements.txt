@@ -1,4 +1,4 @@
 orjson
 fuzzywuzzy
-mediawiki
+pymediawiki
 requests
