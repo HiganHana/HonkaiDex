@@ -1,0 +1,4 @@
+orjson
+fuzzywuzzy
+mediawiki
+requests

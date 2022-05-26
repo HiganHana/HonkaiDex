@@ -1,5 +1,4 @@
-from honkaiDex import gconfig
-
+from hondex import MAX_LV, MIN_LV
 def valid_na_uid(uid : str) -> bool:
     """
     Check if the uid is valid.
@@ -33,12 +32,13 @@ def valid_lv(lv : str) -> bool:
     if lv is None or lv == "":
         return False
     
-    minlv = gconfig.MIN_LV
-    maxlv = gconfig.MAX_LV
+    minlv = MIN_LV
+    maxlv = MAX_LV
 
     if minlv <= int_lv <= maxlv:
         return True
     return False
+
 
 def calculate_stamina(lv : int, current :int):
     max_stamina = lv + 80
