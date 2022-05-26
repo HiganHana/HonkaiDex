@@ -132,27 +132,36 @@ class ScrapJob(metaclass=ScrapMeta):
 
         logging.info(f"Starting {self.model}")
         logging.info(f"{len(self.all_jobs)} jobs to scrape")
+        changes_counter = 0
+
         for unit in self.all_jobs:
             dict_data = self.parse_unit(unit)
             logging.info(f"Parsing {unit}")
             if dict_data is None:
                 continue
             self.json_data[unit] = dict_data
-           
+            changes_counter += 1
             sleep(interval)
         
         if len(self.json_data) == 0:
             logging.info(f"No data to save")
-            return
+            return False
 
+        if changes_counter == 0:
+            logging.info(f"No changes to save")
+            return False
+ 
         try:
             with open(hondex_arch.get_file_path(self.model) if path is None else path, "wb") as f:
                 f.write(orjson.dumps(self.json_data))       
         except:
             raise
     
+        return True
+
     @staticmethod
     def run_all_scraps():
+        changes :bool = False
         import importlib
         # get parent dir
         parent_dir = os.path.dirname(os.path.abspath(__file__))
@@ -168,4 +177,6 @@ class ScrapJob(metaclass=ScrapMeta):
             if not hasattr(module, "run_scrap"):
                 logging.info(f"{file} does not have a run_scrap function")
 
-            module.run_scrap()
+            changes = module.run_scrap() or changes
+    
+        return changes
