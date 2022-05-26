@@ -1,3 +1,5 @@
+VERSION = '1.0.0'
+
 from setuptools import setup, find_packages
 import os
 
@@ -10,7 +12,7 @@ for root, dirs, files in os.walk("honkaiDex/data"):
 
 setup(
     name="honkaidex",
-    version="0.3.1",
+    version=VERSION,
     author="celtica, kiyandere",
     author_email="celticaxp@gmail.com, kiyanhalcyon0707@gmail.com",
     description="Honkai Impact 3 Database",
@@ -18,17 +20,18 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/HiganHana/HonkaiDex",
     packages=[
-        "honkaiDex",
-        "honkaiDex.base",
-        "honkaiDex.profile",
-        "honkaiDex.data",
-        "honkaiDex.parse_v1",
-        "honkaiDex.game",
+        "hondex",
+        "hondex_arch",
+        "hondex_scrap",
+        "hondex_db",
+        "hondex_model"
     ],
     data_files=data_files,
     install_requires=[
-        "zw-util-lib",
-        "fuzzywuzzy"
+        "orjson",
+        "fuzzywuzzy",
+        "mediawiki",
+        "requests",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
