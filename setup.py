@@ -30,7 +30,7 @@ setup(
     install_requires=[
         "orjson",
         "fuzzywuzzy",
-        "mediawiki",
+        "pymediawiki",
         "requests",
     ],
     classifiers=[
