@@ -1,0 +1,112 @@
+{
+    "Mobius": {
+        "name": "Mobius",
+        "height": "173cm",
+        "weight": "54.7kg"
+    },
+    "Aponia": {
+        "name": "Aponia",
+        "height": "175 cm",
+        "weight": "60 kg"
+    },
+    "Asuka": {
+        "name": "Asuka",
+        "height": "157 cm",
+        "weight": "Top secret"
+    },
+    "Bronya Zaychik": {
+        "name": "Bronya Zaychik",
+        "height": "147 cm",
+        "weight": "40 kg"
+    },
+    "Carole Pepper": {
+        "name": "Carole Pepper",
+        "height": "163 cm",
+        "weight": "56 kg"
+    },
+    "Durandal": {
+        "name": "Durandal",
+        "height": "165 cm",
+        "weight": "54 kg"
+    },
+    "Eden": {
+        "name": "Eden",
+        "height": "174 cm",
+        "weight": "58 kg"
+    },
+    "Elysia": {
+        "name": "Elysia",
+        "height": "163 cm",
+        "weight": "54.8 kg"
+    },
+    "Fischl": {
+        "name": "Fischl",
+        "height": "Top secret",
+        "weight": "Top secret"
+    },
+    "Fu Hua": {
+        "name": "Fu Hua",
+        "height": "165 cm",
+        "weight": "53 kg"
+    },
+    "Kallen Kaslana": {
+        "name": "Kallen Kaslana",
+        "height": "170 cm",
+        "weight": "54 kg"
+    },
+    "Kiana Kaslana": {
+        "name": "Kiana Kaslana",
+        "height": "163 cm",
+        "weight": "49 kg"
+    },
+    "Liliya Olenyeva": {
+        "name": "Liliya Olenyeva",
+        "height": "149cm",
+        "weight": "1kg less than [[Rozaliya]]"
+    },
+    "Murata Himeko": {
+        "name": "Murata Himeko",
+        "height": "167 cm",
+        "weight": "65 kg"
+    },
+    "Natasha Cioara": {
+        "name": "Natasha Cioara",
+        "height": "167 cm",
+        "weight": "55 kg"
+    },
+    "Pardofelis": {
+        "name": "Pardofelis",
+        "height": "164cm",
+        "weight": "50kg"
+    },
+    "Raiden Mei": {
+        "name": "Raiden Mei",
+        "height": "172 cm",
+        "weight": "50 kg"
+    },
+    "Rita Rossweisse": {
+        "name": "Rita Rossweisse",
+        "height": "168 cm",
+        "weight": "56 kg"
+    },
+    "Rozaliya Olenyeva": {
+        "name": "Rozaliya Olenyeva",
+        "height": "149cm",
+        "weight": "Top secret"
+    },
+    "Seele Vollerei": {
+        "name": "Seele Vollerei",
+        "height": "149 cm",
+        "weight": "42 kg"
+    },
+    "Theresa Apocalypse": {
+        "name": "Theresa Apocalypse",
+        "height": "145 cm",
+        "weight": "38 kg"
+    },
+    "Yae Sakura": {
+        "name": "Yae Sakura",
+        "height": "194 cm (ears included)",
+        "weight": "56 kg"
+    }
+}
