@@ -1573,5 +1573,26 @@
         "basic": "Void Kata",
         "basicEffect": "Gun kata attack.1st sequence: 100% ATK of Physical DMG.2nd sequence: 3 x 50% ATK of Physical DMG.3rd sequence: 2 x 80% ATK of Physical DMG.4th sequence: 150% ATK of Physical DMG and inflicts a 12s Voidmark on the enemy.If 4th sequence hits, then create a 3s Enerstrom to pull in enemies. Enerstrom CD: 10s.Enemies hit by 4th sequence or pulled in by Enerstrom are Voidmarked for 12s.Performing the 4th Basic ATK sequence and Enerstrom: Lose 50 Herrscher Charge.",
         "name": "Void Drifter"
+    },
+    "Starry Impression": {
+        "character": "Griseo",
+        "version": "5.8",
+        "rank": "A",
+        "type": "PSY",
+        "core_strengths": "Physical, Bleeding, Time Mastery",
+        "profile": "Melee Physical support.Bleed deals high DMG.Ultimate buffs all teammates.",
+        "leader": "Self-Portrait: Stars",
+        "leaderEffect": "Team deals 17.0% bonus Physical DMG to bleeding enemies and starts battle with 35.0 bonus initial SP. In Open World, the initial SP bonus takes effect once every 10mins.",
+        "special": "Combo: Knight Blowing Bubbles",
+        "specialEffect": "Attack together with Mr. Knight.Combo ATK is dictated by the number and color of the paints it consumes:If she does not have the max number of paints or paints of all 3 colors, Mr. Knight will consume all paints to knock enemies airborne and deal 400% ATK of Physical DMG.If she has the max number of paints that contain all 3 colors, Mr. Knight will consume all paints to smite enemies and deal 650% ATK of Physical DMG.Casting Combo ATK grants a Prismatic Bubble buff for 10s.Prismatic Bubble: Negates incoming DMG once. Deals 100% ATK of Physical DMG to nearby enemies on blocking, expiry, or being triggered again.",
+        "passive": "Impression, Ciel Étoilé",
+        "passiveEffect": "Passive bonuses apply automatically.Gain paints through fighting. They have 3 colors and the default paint is red. Tap [ATK] and hit an enemy to gain a paint of the current color. Tap [ULT] to switch colors and hit an enemy to gain a paint of the new color. Gaining a paint grants a corresponding Mixing buff for 20s (gaining it again refreshes the duration).[Mixing: Red]: Deal 20% bonus Total DMG to shield-broken or unshielded enemies.[Mixing: Yellow]: Take 15% less Total DMG.[Mixing: Blue]: Bleeding inflicted by her deals 35% bonus Physical DMG.Stop gaining paints or Mixing buffs at the max number of paints.",
+        "ultimate": "Neverland Genesis",
+        "ultimateEffect": "Exhibit a painting that materializes and attacks upon auto-completion.Casting Ultimate causes Global Time Fracture for 2s. Teammates on the field can inflict 2 [[Bleed Trauma]] (CD: 2s). Ultimate lasts 18s, during which the number of paints is capped at 5. When Ultimate has 8s left, deal 500% ATK of Physical DMG in an area. During Ultimate, her exit refreshes the duration of Mixing buffs and grants teammates the same Mixing buffs.SP cost: 75. CD: 20s.",
+        "evasion": "The Birth of the Depicter",
+        "evasionEffect": "Quickly dodge enemy attacks. Can be performed twice in a row.Ultimate Evasion Skill: Causes Global Time Fracture for 2s (CD: 15s).",
+        "basic": "The Painter and The Knight",
+        "basicEffect": "Fight using a paintbrush and with the help of Mr. Knight.SEQ 1: 80% ATK of Physical DMG.SEQ 2: 100% ATK of Physical DMG.SEQ 3: 120% ATK of Physical DMG.SEQ 4: 80% + 80% ATK of Physical DMG.SEQ 5: 180% ATK of Physical DMG.",
+        "name": "Starry Impression"
     }
 }

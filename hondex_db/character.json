@@ -108,5 +108,10 @@
         "name": "Yae Sakura",
         "height": "194 cm (ears included)",
         "weight": "56 kg"
+    },
+    "Griseo" : {
+        "name" : "Griseo",
+        "height": "0 cm (archon of dust)",
+        "weight": "0 kg (falls out of scale hitbox)"
     }
 }

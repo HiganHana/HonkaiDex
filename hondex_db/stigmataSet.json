@@ -3010,5 +3010,98 @@
             "Exchange",
             "Supply"
         ]
+    },
+    "Cezanne": {
+        "name": "Cezanne",
+        "rarity": "4",
+        "version": "5.8",
+        "slotT_effect": "Physical DMG increases by 10.0% (15.0% at 5star). Boosts Physical DMG dealt by Ultimate by 18.0% (27.0% at 5star) for a short duration after triggering any of the team's Ultimate. Can trigger once every 10s (cannot stack).",
+        "slotM_effect": "Increases Bleed Trauma inflicted by wielder by 15.0% (25.0% at 5star). When enemies take Bleed DMG, Bleed DMG is increased by 10.0% (20.0% at 5star) for 10.0s (cannot be stacked but can be reset).",
+        "slotB_effect": "When hitting character's Combo ATK, all enemies are inflicted with Structure Outline, increasing their Total DMG received by 20.0% (36.0% at 5star) for 6s. CD: 16s. Team's characters are enhanced once. Entering the field again clears the enhancement and causes Structure Outline to last 1.5s longer, up to a maximum of 9s. Structure Outline can only be stacked twice.",
+        "setEffect2p": "Gain 1 stack when dealing Bleed DMG to enemies. Upon gaining 10 stacks, Physical DMG dealt to enemies increases by 500.0%, clearing all stacks. This DMG counts as Bleed DMG (Gain stacks once every 0.3s, DMG CD: 5.0s. Unable to gain stacks during CD). When equipped by [[Starry Impression]] with B-piece, unleashing Ultimate inflicts Structure Outline on enemies and enhances team. When Structure Outline ends, Total DMG received by enemies increases by 36% for 12s. Structure Outline enters a 20s CD. Can only trigger once in every 20s.",
+        "setEffect3p": "Wielder gains 35.0% ATK Speed. After using Ultimate, when attacking enemies with broken or no shield, Total DMG dealt is increased by 2.0% for every stack of Bleed inflicted on the enemies (maximum of 10.0%) for 20s. This effect cannot stack and triggering it again resets the duration.Cezanne is a [[stigmata]] in ''Honkai Impact 3rd''.[[Category:Honkai Impact 3 Wiki]]",
+        "icon_t": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/5/50/Cezanne_%28T%29_%28Icon%29.png/revision/latest?cb=20220630161920",
+        "icon_m": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/6/64/Cezanne_%28M%29_%28Icon%29.png/revision/latest?cb=20220630161936",
+        "icon_b": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/d/d0/Cezanne_%28B%29_%28Icon%29.png/revision/latest?cb=20220630161947",
+        "img_b": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/5/5a/Cezanne_%28B%29.png/revision/latest?cb=20220622210720",
+        "img_m": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/d/d7/Cezanne_%28M%29.png/revision/latest?cb=20220622210747",
+        "img_t": "https://static.wikia.nocookie.net/honkaiimpact3_gamepedia_en/images/e/e7/Cezanne_%28T%29.png/revision/latest?cb=20220622210735",
+        "obtain": [
+            "Supply"
+        ]
+    },
+    "Fu Hua: Birthday": {
+        "name": "Fu Hua: Birthday",
+        "rarity": "3",
+        "version": "Unknown",
+        "slotT_effect": "Total DMG increases by 5.0% (10.0% at 4star). [[Fu Hua]] equip bonus: Gains 5.0% ATK Speed (10.0% at 4star).Lang",
+        "obtain": [
+            "Events"
+        ]
+    },
+    "Herrscher of Flamescion: Shopping": {
+        "name": "Herrscher of Flamescion: Shopping",
+        "rarity": "3",
+        "version": "",
+        "slotM_effect": "Total DMG dealt by Combo ATK increases by ? (8.0% at 4star). Fire DMG increases by ? (10.0% at 4star).Herrscher of Flamescion: Shopping is a [[stigma]] in ''Honkai Impact 3rd''. The stigma could be found translated in the [[Version 5.8]] beta for global servers.[[Category:Honkai Impact 3 Wiki]]",
+        "obtain": []
+    },
+    "Himeko: Lust": {
+        "name": "Himeko: Lust",
+        "rarity": "4",
+        "version": "",
+        "slotM_effect": "?Himeko: Lust is an unreleased [[stigmata]] in ''Honkai Impact 3rd''.[[Category:Honkai Impact 3 Wiki]]",
+        "obtain": []
+    },
+    "Kiana: Greed": {
+        "name": "Kiana: Greed",
+        "rarity": "4",
+        "version": "",
+        "slotT_effect": "?Kiana: Greed is an unreleased [[stigma]] in ''Honkai Impact 3rd''.[[Category:Honkai Impact 3 Wiki]]",
+        "obtain": []
+    },
+    "Mei: Performance": {
+        "name": "Mei: Performance",
+        "rarity": "3",
+        "version": "",
+        "slotT_effect": "Physical DMG increases by ? (15.0% at 4star) when there are only 2 enemies.Mei: Performance is a [[stigma]] in ''Honkai Impact 3rd''. First introduced as a celebration reward for TW [[Server]]'s 5th anniversary. The stigma could be found translated in the [[Version 5.8]] beta for global servers.[[Category:Honkai Impact 3 Wiki]]",
+        "obtain": [
+            "Events"
+        ]
+    },
+    "Naoe Kanetsugu": {
+        "name": "Naoe Kanetsugu",
+        "rarity": "3",
+        "version": "2.2.1",
+        "slotT_effect": "When attacking an enemy with an active Elite Shield, gain 15% (25% at 4star) Total DMG Multiplier. When attacking an enemy with a breached Elite Shield, gain 8% (15% at 4star) Crit Rate.",
+        "slotM_effect": "Take 10% (25% at 4star) less Fire DMG. After taking Fire DMG, the host gains 20% (40% at 4star) Physical DMG for 4s. CD: 10s.",
+        "slotB_effect": "When there are nearby enemies, heal self for 2% HP every 6.0s (4.0s at 4star).",
+        "setEffect2p": "Front-side hits taken by the host deal 80% less Physical DMG. Attacks from other directions deal 40% more Physical DMG. Frontal attack DMG reduction does not apply for a 20s period after evasion.",
+        "setEffect3p": "Upon entering battle, acquire Might of the Vidyaraja, gaining 40% Physical DMG and 60% DEF for 20s. CD: 60s.Naoe Kanetsugu is a [[stigmata]] in ''Honkai Impact 3rd''.==Other Languages==Other Languages",
+        "obtain": [
+            "Events",
+            "Foundry"
+        ]
+    },
+    "Ryunosuke Akutagawa": {
+        "name": "Ryunosuke Akutagawa",
+        "rarity": "3",
+        "version": "2.3",
+        "slotT_effect": "Gain 10% (20% at 4star) Melee Physical DMG.",
+        "slotM_effect": "With each increase in Combo Hit Count, gain 3.0 (5.0 at 4star) Crit. Max bonus: 15.0 (25.0 at 4star).",
+        "slotB_effect": "With each increase in combo hit count, gain 1.0% (2.0% at 4star) Attack Speed. Max bonus: 5.0% (10.0% at 4star).",
+        "setEffect2p": "Receive a shield upon entering the battlefield that can absorb all DMG equal to 15% of the host's Max HP (max: 1800 HP). While the shield is in effect, the host gains 40% Crit DMG. When broken, the shield reappears after 15s.",
+        "setEffect3p": "Melee attacks gain 20% Total DMG Multiplier.Ryunosuke Akutagawa is a [[stigmata]] in ''Honkai Impact 3rd''.==Other Languages==Other Languages",
+        "obtain": [
+            "Foundry",
+            "Supply"
+        ]
+    },
+    "Yae's Birthday": {
+        "name": "Yae's Birthday",
+        "rarity": "3",
+        "version": "",
+        "slotT_effect": "Boosts Attack Speed by 5.0% (10.0% at 4star). When equipped by [[Yae Sakura]], it boosts melee Fire DMG by 5.0% (10.0% at 4star).Yae's Birthday is a [[stigmata]] in ''Honkai Impact 3rd''. The stigma could be found translated in the [[Version 5.8]] beta for global servers.[[Category:Honkai Impact 3 Wiki]]",
+        "obtain": []
     }
 }
